@@ -25,7 +25,9 @@ const diceNumbers = [1,2,3,4,5,6];
 
 
 function CalculationForScores() {
-    if (isGameOver) return;
+    if (isGameOver){ 
+        return;
+    }
 
     let diceRoll = diceNumbers[Math.floor(Math.random() * diceNumbers.length)];
     diceDiv.textContent = `🎲 ${diceRoll}`;
