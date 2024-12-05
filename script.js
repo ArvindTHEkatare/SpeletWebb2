@@ -32,7 +32,7 @@ function CalculationForScores() {
     let diceRoll = diceNumbers[Math.floor(Math.random() * diceNumbers.length)];
     diceDiv.textContent = `🎲 ${diceRoll}`;
     if (diceRoll === 1) {
-        switchPlayer();
+        //switch player 
     } else {
         currentScore += diceRoll;
         document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: ${currentScore}`;
@@ -50,7 +50,7 @@ function HoldScoreCalculation() {
         alert(`Player ${activePlayer + 1} wins!`);
         isGameOver = true;
     } else {
-        switchPlayer();
+        //switch player
     }
 }
 
