@@ -51,6 +51,10 @@ function HoldScoreCalculation() {
         isGameOver = true;
     } else {
         //switch player
+        document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: 0`;
+        currentScore = 0;
+        activePlayer = activePlayer === 0 ? 1 : 0;
+        diceDiv.textContent = `🎲`;
     }
 }
 
