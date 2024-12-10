@@ -25,19 +25,31 @@ const diceNumbers = [1,2,3,4,5,6];
 
 
 function CalculationForScores() {
-    if (isGameOver){ 
+    if (isGameOver) {
         return;
     }
 
     let diceRoll = diceNumbers[Math.floor(Math.random() * diceNumbers.length)];
     diceDiv.textContent = `🎲 ${diceRoll}`;
+
     if (diceRoll === 1) {
-        //switch player 
+        // Nollställ spelarens aktuella poäng
+        currentScore = 0;
+        document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: ${currentScore}`;
+        
+        // Byt spelare
+        activePlayer = activePlayer === 0 ? 1 : 0;
+
+        // Uppdatera UI för att visa vems tur det är
+        document.getElementById('player-1').classList.toggle('active');
+        document.getElementById('player-2').classList.toggle('active');
     } else {
+        // Lägg till tärningsvärdet till spelarens aktuella poäng
         currentScore += diceRoll;
         document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: ${currentScore}`;
     }
 }
+
 
 function HoldScoreCalculation() {
     if (isGameOver) 
@@ -51,13 +63,36 @@ function HoldScoreCalculation() {
         isGameOver = true;
     } else {
         //switch player
-        document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: 0`;
-        currentScore = 0;
-        activePlayer = activePlayer === 0 ? 1 : 0;
-        diceDiv.textContent = `🎲`;
+         //switch player
+         document.getElementById(`current-${activePlayer + 1}`).textContent = `Current: 0`;
+         currentScore = 0;
+         activePlayer = activePlayer === 0 ? 1 : 0;
+         diceDiv.textContent = `🎲`;
     }
 }
 
+function ResetCalculation() {
+    // Återställ alla variabler till startvärden
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    isGameOver = false;
+
+    // Återställ poäng i HTML
+    p1Score.textContent = "0";
+    p2Score.textContent = "0";
+    p1Current.textContent = "Current: 0";
+    p2Current.textContent = "Current: 0";
+
+    // Återställ tärningsvisningen
+    diceDiv.textContent = "🎲";
+
+    // Eventuellt återställ andra UI-element om du har lagt till något
+    alert("Spelet har återställts!");
+}
+
+
 rollDiceBtn.addEventListener("click", CalculationForScores);
 holdBtn.addEventListener("click", HoldScoreCalculation);
+resetBtn.addEventListener("click", ResetCalculation)
 
