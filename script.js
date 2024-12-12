@@ -1,4 +1,4 @@
-
+// ARVIND
 //referens till html dokumentet, referar till players scores och lagrar score i p1 och p2 scores respektivt 
 let p1Score = document.getElementById("score-1");
 let p2Score = document.getElementById("score-2");
@@ -17,24 +17,27 @@ let scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 
-
+// ARVIND
 // skapar h1 element diceValue
 let diceValue = document.createElement("h1");
 diceValue.id = "dice-value"; //ger h1, en id som är dice-value
 diceValue.textContent = "Dice Value 🎲: -"; //text från början
 diceValue.style.color = "black"; // sätter färgen som svart, passar utseende
 
+// ARVIND
 // skapar header variabeln och appendar diceValue till det, så det är synligt på Skärmen
 let header = document.querySelector("header");
 header.appendChild(diceValue);
 
-
+// ARVIND
 //en sorts checker mechanic som kan blir true när gameover har skett men från början falskt
 let isGameOver = false;
 
+// ARVIND
 //en lista/array för alla utfall som finns för en tärning
 const diceNumbers = [1,2,3,4,5,6];
 
+// ARVIND
 //funktionen som gör alla beräkningar kan man säga
 function CalculationForScores() {
     //en sorts checker mekanik, om det är sant, returnera bara (så koden under kommer inte ta plats)
@@ -71,6 +74,7 @@ function CalculationForScores() {
     }
 }
 
+// OMID
 //funktionen som gör alla tar plats om man trycker på hold
 function HoldScoreCalculation() {
     //en sorts checker mekanik, om det är sant, returnera bara (så koden under kommer inte ta plats)
@@ -99,7 +103,7 @@ function HoldScoreCalculation() {
          diceDiv.textContent = `🎲`;
     }
 }
-
+// MAJD
 function ResetCalculation() {
     // Återställ alla variabler till startvärden
     scores = [0, 0];
